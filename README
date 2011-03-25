@@ -1,4 +1,6 @@
-MediaWiki HTML diff engine (http://www.mediawiki.org/wiki/Visual_Diff).
+HTML diff engine derived from the MediaWiki Visual Diff module http://www.mediawiki.org/wiki/Visual_Diff.
+
+Hosted on http://gitorious.org/htmldiff.
 
 Sources:
 http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/diff/HTMLDiff.php?view=markup&pathrev=58266
