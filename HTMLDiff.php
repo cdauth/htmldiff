@@ -406,7 +406,7 @@ class HTMLDiffer {
 		$this->output = $output;
 	}
 
-	function htmlDiff($from, $to) {
+	function htmlDiff($from, $to, $describe_formatting_changes = true) {
 		wfProfileIn( __METHOD__ );
 		// Create an XML parser
 		$xml_parser = xml_parser_create('');
@@ -460,7 +460,7 @@ class HTMLDiffer {
 		$currentIndexLeft = 0;
 		$currentIndexRight = 0;
 		foreach ($differences as &$d) {
-			if ($d->leftstart > $currentIndexLeft) {
+			if ($d->leftstart > $currentIndexLeft && $describe_formatting_changes) {
 				$domdiffer->handlePossibleChangedPart($currentIndexLeft, $d->leftstart,
 					$currentIndexRight, $d->rightstart);
 			}
@@ -473,7 +473,7 @@ class HTMLDiffer {
 			$currentIndexRight = $d->rightend;
 		}
 		$oldLength = $domdiffer->lengthOld();
-		if ($currentIndexLeft < $oldLength) {
+		if ($currentIndexLeft < $oldLength && $describe_formatting_changes) {
 			$domdiffer->handlePossibleChangedPart($currentIndexLeft, $oldLength, $currentIndexRight, $domdiffer->lengthNew());
 		}
 		$domdiffer->expandWhiteSpace();

@@ -44,6 +44,7 @@
 			// This is used by the HTMLDiff module to describe the changes in words. As we don’t really use that, we just return
 			// some example data here.
 			return "wfMsgExt(".implode(", ", func_get_args()).")";
+			// TODO
 		}
 	}
 
@@ -54,6 +55,7 @@
 			// $msg is $key for wfMsgExt, $wfMsgOut is wfMsgExt($key). Returns true when wfMsgExt could not a message with that
 			// key
 			return true;
+			// TODO
 		}
 	}
 	
@@ -76,14 +78,16 @@
 	 * Return the difference between two HTML documents.
 	 * @param String $a The first HTML document
 	 * @param String $b The second HTML document
+	 * @param Boolean $describe_formatting_changes If true, changes in the formatting (for example adding a certain HTML attribute
+	 *                                             to a tag) are shown in text form.
 	 * @return String An HTML document that represents the difference between the two HTML documents by assigning the class names
 	 *                diff-html-added and diff-html-removed to the changed elements.
 	*/
 
-	function html_diff($a, $b)
+	function html_diff($a, $b, $describe_formatting_changes = false)
 	{
 		$out = new ChangeText();
 		$htmldiffer = new HTMLDiffer(new DelegatingContentHandler($out));
-		$htmldiffer->htmlDiff($a, $b);
+		$htmldiffer->htmlDiff($a, $b, $describe_formatting_changes);
 		return $out->toString();
 	}
