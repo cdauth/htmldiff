@@ -52,7 +52,7 @@
 	{
 		function wfEmptyMsg($msg, $wfMsgOut)
 		{
-			// $msg is $key for wfMsgExt, $wfMsgOut is wfMsgExt($key). Returns true when wfMsgExt could not a message with that
+			// $msg is $key for wfMsgExt, $wfMsgOut is wfMsgExt($key). Returns true when wfMsgExt could not find a message with that
 			// key
 			return true;
 			// TODO
