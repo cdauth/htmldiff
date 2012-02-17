@@ -9,7 +9,7 @@ http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/diff/Nodes.php?v
 http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/Sanitizer.php?view=markup&pathrev=58267
 http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/includes/Xml.php?view=markup&pathrev=58267
 
-To use this, include the file htmldiff.php. The function html_diff($a, $b) is a helper function that returns
+To use this, include the file html_diff.php. The function html_diff($a, $b) is a helper function that returns
 the difference between to HTML code strings as HTML code. It will assign the HTML class names diff-html-added
 and diff-html-removed to changed content.
 
