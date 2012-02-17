@@ -43,7 +43,8 @@
 			// The message for the key "diff-movedoutof" is "moved out of $1", for "diff-pre" it is "a preformatted block", for example
 			// This is used by the HTMLDiff module to describe the changes in words. As we don’t really use that, we just return
 			// some example data here.
-			return "wfMsgExt(".implode(", ", func_get_args()).")";
+			$args = func_get_args();
+			return "wfMsgExt(".implode(", ", $args).")";
 			// TODO
 		}
 	}
