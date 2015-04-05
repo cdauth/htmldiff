@@ -325,7 +325,7 @@ class TextNodeDiffer {
 				$prevResult->parent = $this->bodyNode;
 				$prevResult->indexInLastCommonParent = -1;
 			}
-			if (isset($nextleaf)) {
+			if (isset($nextLeaf)) {
 				$nextResult = $nextLeaf->getLastCommonParent($deletedNodes[count($deletedNodes) - 1]);
 			} else {
 				$nextResult = new LastCommonParentResult();
@@ -374,8 +374,8 @@ class TextNodeDiffer {
 						$nextResult->indexInLastCommonParent = $nextResult->indexInLastCommonParent + 1;
 					}
 				}
-				$nextLeaf = $deletedNodes[count(deletedNodes) - 1]->copyTree();
-				unset($deletedNodes[count(deletedNodes) - 1]);
+				$nextLeaf = $deletedNodes[count($deletedNodes) - 1]->copyTree();
+				unset($deletedNodes[count($deletedNodes) - 1]);
 				$deletedNodes = array_values($deletedNodes);
 				$nextLeaf->setParent($nextResult->parent);
 				$nextResult->parent->addChildAbsolute($nextLeaf,$nextResult->indexInLastCommonParent);
