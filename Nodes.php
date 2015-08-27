@@ -60,7 +60,7 @@ class Node {
 		$nbMyParents = count($myParents);
 		$nbOtherParents = count($otherParents);
 		while ($isSame && $i < $nbMyParents && $i < $nbOtherParents) {
-			if (!$myParents[$i]->openingTag === $otherParents[$i]->openingTag) {
+			if ($myParents[$i]->openingTag !== $otherParents[$i]->openingTag) {
 				$isSame = false;
 			} else {
 				// After a while, the index i-1 must be the last common parent
