@@ -196,18 +196,21 @@ class TagNode extends Node {
 					$pastSplit = true;
 				}
 			}
+			
+			// Replace the existing child with $part1 (left) and $part2 (right).
+			// Insertions shift existing content right, so insert part2 before
+			// inserting part1.
 			$myindexinparent = $this->parent->getIndexOf($this);
-			if (!empty($part1->children)) {
-				$this->parent->addChildAbsolute($part1, $myindexinparent);
-			}
+			$this->parent->removeChild($myindexinparent);
 			if (!empty($part2->children)) {
 				$this->parent->addChildAbsolute($part2, $myindexinparent);
+			}
+			if (!empty($part1->children)) {
+				$this->parent->addChildAbsolute($part1, $myindexinparent);
 			}
 			if (!empty($part1->children) && !empty($part2->children)) {
 				$splitOccured = true;
 			}
-
-			$this->parent->removeChild($myindexinparent);
 
 			if ($includeLeft) {
 				$this->parent->splitUntil($parent, $part1, $includeLeft);
